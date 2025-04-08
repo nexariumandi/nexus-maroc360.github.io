@@ -1,0 +1,1 @@
+Contenu simulé : accessibility_overlay.js

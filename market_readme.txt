@@ -1,0 +1,1 @@
+Contenu simulé : market_readme.txt
