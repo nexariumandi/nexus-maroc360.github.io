@@ -1,0 +1,1 @@
+const events = [{year: 789, title: 'Fondation du Maroc'}];
