@@ -1,1 +1,1 @@
-Contenu simulé : accessibility_overlay.js
+Contenu simulé pour : Overlay accessibilité sacrée

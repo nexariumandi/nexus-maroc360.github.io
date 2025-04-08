@@ -1,0 +1,1 @@
+Contenu simulé pour : Guide d’intégration GitHub/Web
