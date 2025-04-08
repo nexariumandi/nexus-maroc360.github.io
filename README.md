@@ -1,2 +1,3 @@
-# nexus-maroc360.github.io
-Le Maroc en 360° — Flipbook Immersif
+# Le Maroc en 360°
+
+Projet culturel immersif en God Mode complet.
