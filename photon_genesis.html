@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Photon Genesis – Générateur Sacré</title>
+  <style>
+    body {
+      background: linear-gradient(#000000, #1a1a1a);
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #66ffcc;
+      margin-bottom: 30px;
+    }
+    canvas {
+      border: 2px solid #66ffcc;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #66ffcc;
+      border: none;
+      color: black;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Photon Genesis</h1>
+  <p>Génère une mémoire visuelle cosmique et sacrée à chaque clic.</p>
+  <canvas id="photonCanvas" width="800" height="400"></canvas>
+  <br>
+  <button onclick="generate()">Générer</button>
+
+  <script>
+    const canvas = document.getElementById('photonCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function generate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < 200; i++) {
+        ctx.beginPath();
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 3 + 1;
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.8)`;
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+  </script>
+</body>
+</html>
