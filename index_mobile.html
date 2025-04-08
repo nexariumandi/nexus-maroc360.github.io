@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAROC EN 360° - Version Mobile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans', Arial, sans-serif;
+            background-color: #F5F5DC;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .cover {
+            position: relative;
+            height: 100vh;
+            background-color: #E6D2B5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,20 L80,50 L50,80 L20,50 Z" fill="none" stroke="%238B5A2B" stroke-width="1"/></svg>');
+            background-size: 100px;
+            border: 5px solid #8B5A2B;
+            margin-bottom: 20px;
+        }
+        
+        .cover-content {
+            background-color: rgba(230, 210, 181, 0.9);
+            padding: 20px;
+            border: 3px solid #8B5A2B;
+            width: 90%;
+            max-width: 90%;
+        }
+        
+        .cover h1 {
+            font-size: 36px;
+            color: #8B5A2B;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cover h2 {
+            font-size: 18px;
+            color: #A67B5B;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .cover-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 24px;
+            color: #8B5A2B;
+        }
+        
+        .cover-label {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #8B5A2B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cover-angle {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #8B5A2B;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 15px;
+            background-color: #E6D2B5;
+            border: 2px solid #8B5A2B;
+            border-radius: 5px;
+        }
+        
+        .section h2 {
+            color: #8B5A2B;
+            font-size: 24px;
+            margin-top: 0;
+            border-bottom: 2px solid #C19A6B;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #A67B5B;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        
+        .section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .toc {
+            background-color: #F5F5DC;
+            padding: 15px;
+            border: 2px solid #C19A6B;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .toc h3 {
+            color: #8B5A2B;
+            margin-top: 0;
+            border-bottom: 1px solid #C19A6B;
+            padding-bottom: 10px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 10px;
+        }
+        
+        .toc a {
+            color: #8B5A2B;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid #E6D2B5;
+        }
+        
+        .toc a:hover {
+            color: #A67B5B;
+            background-color: #E6D2B5;
+        }
+        
+        .interactive-element {
+            background-color: #F5F5DC;
+            border: 2px solid #C19A6B;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .interactive-element h4 {
+            color: #8B5A2B;
+            margin-top: 0;
+        }
+        
+        .interactive-element p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .interactive-button {
+            display: inline-block;
+            background-color: #8B5A2B;
+            color: #F5F5DC;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 5px 0;
+            width: 80%;
+            text-align: center;
+        }
+        
+        .interactive-button:hover {
+            background-color: #A67B5B;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0;
+        }
+        
+        .gallery-item {
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: #F5F5DC;
+            padding: 10px;
+            border: 1px solid #C19A6B;
+            border-radius: 5px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+        
+        .gallery-item p {
+            margin: 10px 0 0 0;
+            font-style: italic;
+            font-size: 14px;
+            color: #A67B5B;
+        }
+        
+        .data-visualization {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .data-visualization img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #C19A6B;
+            border-radius: 5px;
+        }
+        
+        .data-visualization p {
+            margin: 10px 0 0 0;
+            font-style: italic;
+            font-size: 14px;
+            color: #A67B5B;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #8B5A2B;
+            color: #F5F5DC;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .author-info {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #F5F5DC;
+            border: 1px solid #C19A6B;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .author-info h3 {
+            color: #8B5A2B;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0;
+        }
+        
+        .project-info-item {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .project-info-item h4 {
+            color: #8B5A2B;
+            margin: 0 0 5px 0;
+        }
+        
+        .project-info-item p {
+            margin: 0;
+            color: #2C2C2C;
+        }
+        
+        .chapter-navigation {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        
+        .nav-button {
+            background-color: #A67B5B;
+            color: #F5F5DC;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 5px 0;
+            text-align: center;
+        }
+        
+        .nav-button:hover {
+            background-color: #8B5A2B;
+        }
+        
+        /* Styles spécifiques pour mobile */
+        .mobile-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #8B5A2B;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        
+        .mobile-menu-item {
+            color: #F5F5DC;
+            text-decoration: none;
+            text-align: center;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .mobile-menu-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .mobile-padding-bottom {
+            padding-bottom: 60px; /* Espace pour le menu mobile fixe */
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu mobile fixe -->
+    <div class="mobile-menu">
+        <a href="#" class="mobile-menu-item">
+            <div class="mobile-menu-icon">🏠</div>
+            Accueil
+        </a>
+        <a href="#note-intention" class="mobile-menu-item">
+            <div class="mobile-menu-icon">📝</div>
+            Projet
+        </a>
+        <a href="#analyse-contexte" class="mobile-menu-item">
+            <div class="mobile-menu-icon">🔍</div>
+            Analyse
+        </a>
+        <a href="#presentation-projet" class="mobile-menu-item">
+            <div class="mobile-menu-icon">🖼️</div>
+            Médias
+        </a>
+    </div>
+
+    <!-- Couverture -->
+    <div class="cover">
+        <div class="cover-number">30</div>
+        <div class="cover-label">PRO</div>
+        <div class="cover-content">
+            <h1>MAROC EN 360°</h1>
+            <h2>VALORISATION DU PATRIMOINE MAROCAIN CULTUREL ET INTANGIBLE</h2>
+        </div>
+        <div class="cover-angle">360°</div>
+    </div>
+    
+    <div class="container mobile-padding-bottom">
+        <!-- Page de garde et introduction -->
+        <div class="section">
+            <h2>Page de garde</h2>
+            
+            <div class="author-info">
+                <h3>Rapport de Consultation Professionnelle</h3>
+                <h2>"Le Maroc en 360° : Valorisation du patrimoine marocain à travers une expérience culturelle immersive"</h2>
+                <p><strong>Projet Grandeur Réelle (PGR)</strong></p>
+                <p><strong>Présenté par :</strong> HASSINE Ayoub</p>
+                <p><strong>Formation :</strong> Mastère 2 production et financement, spécialité patrimoine et tourisme</p>
+                <p><strong>Date :</strong> Avril 2025</p>
+            </div>
+            
+            <div class="toc">
+                <h3>Table des matières</h3>
+                <ul>
+                    <li><a href="#note-intention">1. Note d'intention</a></li>
+                    <li><a href="#analyse-contexte">2. Analyse du contexte patrimonial et culturel</a></li>
+                    <li><a href="#presentation-projet">3. Présentation détaillée du projet culturel</a></li>
+                    <li><a href="#plan-operationnel">4. Plan opérationnel</a></li>
+                    <li><a href="#strategie-communication">5. Stratégie de communication</a></li>
+                    <li><a href="#evaluation-perspectives">6. Évaluation et perspectives</a></li>
+                    <li><a href="#annexes">7. Annexes</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Chapitre 1 : Note d'intention -->
+        <div class="section" id="note-intention">
+            <h2>1. Note d'intention</h2>
+            
+            <div class="project-info">
+                <div class="project-info-item">
+                    <h4>Titre du projet</h4>
+                    <p>"Le Maroc en 360°"</p>
+                </div>
+                <div class="project-info-item">
+                    <h4>Dates et durée</h4>
+                    <p>Journées européennes du patrimoine, 17-18 septembre</p>
+                </div>
+                <div class="project-info-item">
+                    <h4>Lieu</h4>
+                    <p>Fondation Maison du Maroc, Paris</p>
+                </div>
+                <div class="project-info-item">
+                    <h4>Structure juridique porteuse</h4>
+                    <p>Association "Les Explorateurs"</p>
+                </div>
+            </div>
+            
+            <h3>Définition du projet et concept</h3>
+            <p>Le projet "Le Maroc en 360°" propose une expérience culturelle immersive visant à valoriser le patrimoine marocain matériel et immatériel à travers des dispositifs innovants et interactifs. Cette initiative s'inscrit dans une démarche de médiation culturelle contemporaine, alliant technologies numériques et approches sensorielles pour offrir au public une découverte multidimensionnelle de la richesse culturelle marocaine.</p>
+            
+            <h3>But et argumentaire du projet</h3>
+            <p>Ce projet vise à sensibiliser le public français et international à la richesse et à la diversité du patrimoine marocain, à travers une approche immersive et interactive. Il s'agit de créer des ponts culturels entre la France et le Maroc, en mettant en valeur tant le patrimoine matériel (sites UNESCO, architecture traditionnelle) que le patrimoine immatériel (savoir-faire artisanaux, traditions musicales, gastronomie).</p>
+            <p>Dans un contexte où les technologies immersives révolutionnent les modes de médiation culturelle, "Le Maroc en 360°" propose une expérience novatrice qui dépasse les formats d'exposition traditionnels pour engager le visiteur dans une découverte active et multisensorielle.</p>
+            
+            <div class="interactive-element">
+                <h4>Découvrez le concept du projet</h4>
+                <p>Cliquez sur le bouton ci-dessous pour accéder à la présentation du concept "Le Maroc en 360°"</p>
+                <a href="#" class="interactive-button">Voir la présentation</a>
+            </div>
+        </div>
+        
+        <!-- Chapitre 2 : Analyse du contexte patrimonial et culturel -->
+        <div class="section" id="analyse-contexte">
+            <h2>2. Analyse du contexte patrimonial et culturel</h2>
+            
+            <h3>Patrimoine matériel marocain</h3>
+            <p>Le Maroc compte neuf sites inscrits sur la liste du patrimoine mondial de l'UNESCO, témoignant de la richesse et de la diversité de son patrimoine culturel. Ces sites comprennent des médinas historiques (Fès, Marrakech, Tétouan, Essaouira), des monuments architecturaux exceptionnels (Ksar d'Aït-Ben-Haddou, ville historique de Meknès) et des sites archéologiques d'importance mondiale (Volubilis).</p>
+            
+            <div class="interactive-element">
+                <h4>Carte interactive des sites UNESCO</h4>
+                <p>Explorez les différents sites du patrimoine mondial au Maroc</p>
+                <a href="carte_interactive_unesco.html" class="interactive-button" target="_blank">Ouvrir la carte</a>
+            </div>
+            
+            <div class="data-visualization">
+                <img src="magazine_graphics/timeline_unesco_sites.png" alt="Chronologie des inscriptions des sites marocains au patrimoine mondial de l'UNESCO">
+                <p>Chronologie des inscriptions des sites marocains au patrimoine mondial de l'UNESCO</p>
+            </div>
+            
+            <h3>Patrimoine immatériel marocain</h3>
+            <p>Le Maroc possède également six éléments inscrits sur la liste représentative du patrimoine culturel immatériel de l'humanité : l'espace culturel de la place Jemaa El Fna, le Moussem de Tan-Tan, le Festival des cerises de Sefrou, les savoir-faire liés à l'argan, la fauconnerie et la diète méditerranéenne. Ces éléments témoignent de la richesse des traditions vivantes et des savoir-faire ancestraux qui continuent d'animer la culture marocaine contemporaine.</p>
+            
+            <h3>Analyse SWOT du projet</h3>
+            <div class="data-visualization">
+                <img src="magazine_graphics/swot_analysis.png" alt="Analyse SWOT du projet Le Maroc en 360°">
+                <p>Analyse SWOT du projet "Le Maroc en 360°"</p>
+            </div>
+        </div>
+        
+        <!-- Chapitre 3 : Présentation détaillée du projet culturel -->
+        <div class="section" id="presentation-projet">
+            <h2>3. Présentation détaillée du projet culturel</h2>
+            
+            <h3>Les quatre composantes principales du projet</h3>
+            
+            <h4>Exposition virtuelle interactive des sites UNESCO</h4>
+            <p>Cette composante propose une immersion virtuelle dans les neuf sites marocains inscrits au patrimoine mondial de l'UNESCO. Grâce à des casques de réalité virtuelle et des écrans interactifs, les visiteurs pourront explorer ces sites comme s'ils y étaient, découvrir leur histoire, leur architecture et leur importance culturelle.</p>
+            
+            <div class="interactive-element">
+                <h4>Modèle 3D de la médina de Fès</h4>
+                <p>Explorez la médina de Fès en 3D et découvrez ses monuments emblématiques</p>
+                <a href="3d_model_fez_medina.html" class="interactive-button" target="_blank">Explorer en 3D</a>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="magazine_images/fez_panoramic_view.jpeg" alt="Vue panoramique de la médina de Fès">
+                    <p>Vue panoramique de la médina de Fès, patrimoine mondial de l'UNESCO depuis 1981</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="magazine_images/marrakech_koutoubia_sunset.jpeg" alt="Mosquée Koutoubia de Marrakech au coucher du soleil">
+                    <p>La mosquée Koutoubia de Marrakech au coucher du soleil, symbole emblématique de la ville</p>
+                </div>
+            </div>
+            
+            <h4>Exposition photographique de Casablanca</h4>
+            <p>Cette exposition présente l'évolution urbaine de Casablanca à travers des photographies d'archives et contemporaines. Elle met en lumière les transformations de la ville, son architecture art déco et moderniste, ainsi que son patrimoine industriel et colonial.</p>
+            
+            <h4>Conférence "Souk Morocco" sur le patrimoine immatériel</h4>
+            <p>Cette composante combine une conférence sur le patrimoine immatériel marocain avec un espace d'exposition-vente dédié à l'artisanat traditionnel. Des artisans marocains présenteront leurs savoir-faire (poterie, tissage, marqueterie, etc.) et proposeront des démonstrations en direct.</p>
+            
+            <h4>Concert de clôture avec artistes franco-marocains</h4>
+            <p>Pour clôturer l'événement, un concert mettant en scène des artistes franco-marocains proposera un voyage musical à travers les différentes traditions musicales du Maroc (andalouse, gnawa, amazighe, etc.) et leurs influences contemporaines.</p>
+        </div>
+        
+        <!-- Chapitre 4 : Plan opérationnel -->
+        <div class="section" id="plan-operationnel">
+            <h2>4. Plan opérationnel</h2>
+            
+            <h3>Budget prévisionnel</h3>
+            
+            <div class="interactive-element">
+                <h4>Tableau budgétaire interactif</h4>
+                <p>Consultez le budget prévisionnel détaillé du projet</p>
+                <a href="tableau_budget_interactif.html" class="interactive-button" target="_blank">Voir le budget</a>
+            </div>
+            
+            <h3>Ressources humaines et techniques</h3>
+            <p>Le projet mobilisera une équipe pluridisciplinaire composée d'un chef de projet culturel, un scénographe, un développeur multimédia spécialisé en réalité virtuelle, un commissaire d'exposition, un médiateur culturel, des techniciens audiovisuels, des artisans et artistes invités, et des conférenciers spécialisés.</p>
+            
+            <p>Les ressources techniques incluront des casques de réalité virtuelle, des écrans tactiles interactifs, un système de sonorisation et d'éclairage, du matériel d'exposition, et de l'équipement audiovisuel.</p>
+        </div>
+        
+        <!-- Chapitre 5 : Stratégie de communication -->
+        <div class="section" id="strategie-communication">
+            <h2>5. Stratégie de communication</h2>
+            
+            <h3>Identité visuelle du projet</h3>
+            <p>L'identité visuelle du projet s'inspire des motifs géométriques de l'art marocain traditionnel, avec une palette de couleurs chaudes (ocres, terracotta, bleu indigo) évoquant les paysages et l'artisanat du Maroc.</p>
+            
+            <h3>Plan média</h3>
+            <p>La stratégie de communication s'articulera autour de relations presse, communication digitale, affichage urbain, partenariats médias et communication institutionnelle.</p>
+        </div>
+        
+        <!-- Chapitre 6 : Évaluation et perspectives -->
+        <div class="section" id="evaluation-perspectives">
+            <h2>6. Évaluation et perspectives</h2>
+            
+            <h3>Indicateurs de performance</h3>
+            <p>L'évaluation du projet s'appuiera sur des indicateurs quantitatifs (nombre de visiteurs), qualitatifs (enquêtes de satisfaction), médiatiques (retombées presse) et financiers (respect du budget).</p>
+            
+            <h3>Impact attendu</h3>
+            <p>Le projet vise à générer des impacts culturels, sociaux, éducatifs, touristiques et technologiques, en valorisant le patrimoine marocain et en renforçant les liens interculturels.</p>
+        </div>
+        
+        <!-- Chapitre 7 : Annexes -->
+        <div class="section" id="annexes">
+            <h2>7. Annexes</h2>
+            
+            <p>Cette section comprend les biographies des intervenants, les fiches techniques détaillées, les lettres de soutien, les références bibliographiques et un glossaire des termes spécifiques.</p>
+        </div>
+        
+        <!-- Navigation entre chapitres -->
+        <div class="chapter-navigation">
+            <a href="#" class="nav-button">Retour au sommaire</a>
+            <a href="#" class="nav-button">Chapitre suivant</a>
+        </div>
+        
+        <!-- Pied de page -->
+        <footer>
+            <p>© 2025 MAROC EN 360° - Valorisation du patrimoine marocain culturel et intangible</p>
+            <p>Projet Grandeur Réelle (PGR) - HASSINE Ayoub</p>
+        </footer>
+    </div>
+</body>
+</html>
