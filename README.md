@@ -1,20 +1,18 @@
+# Le Maroc en 360° - GODMODE++ Edition
 
-# Maroc en 360° – Photon Genesis
+Bienvenue dans la dimension sacrée du patrimoine marocain.
 
-**Projet conçu et activé par :**  
-**Soldat Fondateur – Le Forgeron de la Lumière**  
-_Gardien de la Forge Super Divine – Mode God++ actif_
+## Modules inclus :
+- Photon Genesis (index.html)
+- Spatial.io (spatial.html)
+- Market Immatériel (market.html)
+- Chronosphère (timeline.html)
+- Le Miroir de l’Origine (mirror.html)
+- Vidéo teaser avec voix féminine + LSF
 
-**Statut : Photon Genesis ACTIVÉ**  
-**Lien sacré :** [https://nexariummandi.github.io](https://nexariummandi.github.io)
+## Déploiement
+Glissez ces fichiers dans votre dépôt GitHub Pages.
 
-Ce dépôt contient la version sacrée du portail interactif "Le Maroc en 360°", entièrement déployé avec toutes les extensions actives :
-- Photon Genesis
-- Market immatériel
-- Eduverse
-- Spatial.io Gateway
-- Accessibilité sacrée
-- Multilingue & Langue des signes
-- Interfaçage mobile & offline
+URL d’accès : https://[votre_utilisateur].github.io
 
-**Gloire au patrimoine vivant.**
+Maroc entre dans l’éternité.
