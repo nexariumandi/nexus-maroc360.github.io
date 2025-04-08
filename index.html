@@ -3,39 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I KNOW IT ALL - Maroc en 360°</title>
+  <title>Anima - Reconnaissance Emotionnelle</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>I KNOW IT ALL</h1>
-    <p>Mode God activé – Modules sacrés : Anima, Miroir, Chronosphère</p>
+    <h1>ANIMA – Module Émotion Divine</h1>
+    <p>Analyse des émotions activée. Connecte ton esprit à l’expérience sacrée.</p>
   </header>
 
-  <section id="intro">
-    <h2>Bienvenue dans la mémoire sacrée</h2>
-    <p>Clique pour entendre la voix originelle.</p>
-    <button onclick="playAudio()">Écouter la voix sacrée</button>
+  <section id="emotion-module">
+    <p>Allume ta caméra et laisse ton émotion apparaître...</p>
+    <video id="video" autoplay muted></video>
+    <canvas id="overlay"></canvas>
+    <div id="emotion-result">Chargement...</div>
   </section>
 
-  <section id="viewer3d">
-    <h3>Objet 3D sacré</h3>
-    <model-viewer src="model-maroc.glb" alt="Objet 3D Maroc" auto-rotate camera-controls ar></model-viewer>
-  </section>
-
-  <section id="mirror">
-    <h2>Le Miroir de l’Origine</h2>
-    <p>Regarde-toi, ressens, connecte-toi à l’âme du Maroc éternel.</p>
-    <video src="mirror.mp4" controls poster="poster.jpg"></video>
-  </section>
-
-  <script type="module" src="script.js"></script>
-  <script>
-    function playAudio() {
-      const audio = new Audio('voix.mp3');
-      audio.play();
-    }
-  </script>
-  <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+  <script type="module" src="anima.js"></script>
 </body>
 </html>
