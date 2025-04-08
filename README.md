@@ -1,3 +1,3 @@
-# Multivers Maroc 360°
-Activation Totale GodMode+++
-Extensions : Photon Genesis, Anima, Spatial.io, Mirror AR, Eduverse, Market.
+git add README.md
+git commit -m "Déploiement du README sacré - Photon Genesis activé"
+git push origin main
