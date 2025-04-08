@@ -9,16 +9,26 @@
 <body>
   <header>
     <h1>I KNOW IT ALL</h1>
-    <p>Mode God activé – Tous les modules sont opérationnels.</p>
+    <p>Mode God activé – Modules sacrés : Anima, Miroir, Chronosphère</p>
   </header>
+
   <section id="intro">
     <h2>Bienvenue dans la mémoire sacrée</h2>
-    <p>Clique pour explorer les objets 3D, la Chronosphère et le miroir de l'origine.</p>
+    <p>Clique pour entendre la voix originelle.</p>
     <button onclick="playAudio()">Écouter la voix sacrée</button>
   </section>
+
   <section id="viewer3d">
-    <model-viewer src="model.glb" alt="Objet 3D" auto-rotate camera-controls ar></model-viewer>
+    <h3>Objet 3D sacré</h3>
+    <model-viewer src="model-maroc.glb" alt="Objet 3D Maroc" auto-rotate camera-controls ar></model-viewer>
   </section>
+
+  <section id="mirror">
+    <h2>Le Miroir de l’Origine</h2>
+    <p>Regarde-toi, ressens, connecte-toi à l’âme du Maroc éternel.</p>
+    <video src="mirror.mp4" controls poster="poster.jpg"></video>
+  </section>
+
   <script type="module" src="script.js"></script>
   <script>
     function playAudio() {
