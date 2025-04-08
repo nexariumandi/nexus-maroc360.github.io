@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Miroir de l'Origine</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I KNOW IT ALL - Maroc en 360°</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="mirror-container">
-    <video id="webcam" autoplay muted playsinline></video>
-    <div id="overlay">
-      <h1 class="title">Miroir de l'Origine</h1>
-      <p class="quote">« Reviens à ton origine… »</p>
-      <button id="explore-btn">Plonger dans une mémoire</button>
-    </div>
-    <audio id="voice" src="audio/voix-origine.mp3" autoplay></audio>
-    <div id="sign-language">
-      <video src="video/langue-des-signes.mp4" autoplay loop muted></video>
-    </div>
-    <model-viewer src="3d/memoire-sacree.glb" alt="Objet Sacré"
-                  auto-rotate camera-controls
-                  style="width: 100%; height: 400px;">
-    </model-viewer>
-  </div>
-
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script src="script.js"></script>
+  <header>
+    <h1>I KNOW IT ALL</h1>
+    <p>Mode God activé – Tous les modules sont opérationnels.</p>
+  </header>
+  <section id="intro">
+    <h2>Bienvenue dans la mémoire sacrée</h2>
+    <p>Clique pour explorer les objets 3D, la Chronosphère et le miroir de l'origine.</p>
+    <button onclick="playAudio()">Écouter la voix sacrée</button>
+  </section>
+  <section id="viewer3d">
+    <model-viewer src="model.glb" alt="Objet 3D" auto-rotate camera-controls ar></model-viewer>
+  </section>
+  <script type="module" src="script.js"></script>
+  <script>
+    function playAudio() {
+      const audio = new Audio('voix.mp3');
+      audio.play();
+    }
+  </script>
+  <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
 </body>
 </html>
